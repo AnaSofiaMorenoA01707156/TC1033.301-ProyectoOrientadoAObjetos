@@ -1,5 +1,6 @@
 # TC1033.301-Proyecto de Pensamiento computacional orientado a objetos: "smart-Recylcing :))"
 Este es un proyecto hecho para ayudar a las personas a identificar sus tipos de desechos reciclables (por el momento solo distintos papeles y cartón), para posteriormente aprender de qué forma pueden reciclar o reutilizar cada uno. Esto tiene la intención de fomentar la reutilización y el reciclaje en la sociedad, así como la educación sobre los mismos.
+
 NOTA: Las recomendaciones sobre reciclaje y reutilización aún no aparecen completas. En futuros avances estarán completas a partir de investigación.<--
 
 # Contexto
