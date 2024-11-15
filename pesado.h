@@ -21,8 +21,6 @@ private:
 public:
   //Constructor
   pesado(float, string);
-  //Destructor
-  ~pesado();
   //Métodos miembros de la clase
   float get_cantidad();
   string get_tiempoVida();
@@ -35,10 +33,6 @@ pesado::pesado(float cant, string estado){
   estadoLimpieza=estado;
   tiempoVida="alrededor de 5 años.";
   cantidad=cant;
-}
-
-//Destruye el objeto de pesado
-pesado::~pesado(){
 }
 
 //Abstrae el atributo tiempoVida del objeto

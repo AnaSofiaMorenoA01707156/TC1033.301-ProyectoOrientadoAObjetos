@@ -21,8 +21,6 @@ private:
 public:
   //Constructor
   ligero(float, string);
-  //Destructor
-  ~ligero();
   //Métodos miembros de la clase
   float get_cantidad();
   string get_tiempoVida();
@@ -35,10 +33,6 @@ ligero::ligero(float cant, string estado){
   estadoLimpieza=estado;
   tiempoVida="de medio año a 5 años.";
   cantidad=cant;
-}
-
-//Destruye el objeto de ligero
-ligero::~ligero(){
 }
 
 //Abstrae el atributo tiempoVida del objeto

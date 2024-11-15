@@ -21,8 +21,6 @@ private:
 public:
   //Constructor
   especial(float, string);
-  //Destructor
-  ~especial();
   //Métodos miembros de la clase
   float get_cantidad();
   string get_tiempoVida();
@@ -35,10 +33,6 @@ especial::especial(float cant, string estado){
   estadoLimpieza=estado;
   tiempoVida="de 5 hasta 20 años (depende mucho del tipo de ambiente en el que se encuentre).";
   cantidad=cant;
-}
-
-//Destruye el objeto de especial
-especial::~especial(){
 }
 
 //Abstrae el atributo tiempoVida del objeto
