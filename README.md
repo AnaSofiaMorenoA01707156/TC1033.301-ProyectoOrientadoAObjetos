@@ -16,7 +16,7 @@ De acuerdo a las indicaciones mostradas, se debe ingresar la información sobre 
 # Consideraciones
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos.
 
---> Compilar con: "g++ ligero.h especial.h pesado.h main.cpp"
+--> Compilar con: "g++ main.cpp"
 
 + Correr en Windows PowerShell: ".\a.exe"
 
