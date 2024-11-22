@@ -8,7 +8,6 @@ En el mundo en general, pero especialmente en México, existe una falta de recic
 
 # Funcionalidad
 En esta entrega, el programa permite ingresar la información sobre un tipo de residuo de papel o cartón, así como su cantidad, condición, etc., y con ello regresa información importante sobre el tipo de residuo en cuestiones ecológicas, así como opciones para su reciclaje o reutilización. Posteriormente muestra al usuario el ahorro de recursos: de agua en litros, de energía en Kilowatts y de emisiones de CO2 en Kg si reciclara ese residuo en cuestión, basándose en el tipo de papel y en la cantidad aproximada del mismo.
-En el futuro el programa manejará más clases de residuos reciclables, como vidrios, latas o plásticos, para arrojar la información pertinente de cada uno.
 
 # ¿Cómo se debe usar?
 De acuerdo a las indicaciones mostradas, se debe ingresar la información sobre el residuo del usuario (tipo de papel, cantidad, condición, etc.) en el main. El programa debe proporcionar entonces información ambiental, consejos para disponer del residuo de manera ecológica e información sobre los ahorros de recursos o contaminantes y la preservación del medio ambiente.
