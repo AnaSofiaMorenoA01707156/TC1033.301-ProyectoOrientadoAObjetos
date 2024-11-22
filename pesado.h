@@ -8,6 +8,10 @@ A01707156
 /*
 Clase pesado, maneja los atributos y métodos de este tipo de papel y da las recomendaciones para su manejo
 */
+
+#ifndef PESADO_H_
+#define PESADO_H_
+
 #include "papel.h"
 #include<string>
 #include<iostream> //Bibliotecas
@@ -43,3 +47,5 @@ void pesado::recomendaciones(int est){
       cout<<"Estado de tu papel no válido. Recuerda que las posibles opciones del estado del papel que quieres reciclar o reutilizar son: 'Bueno', 'Decente' o 'Dudoso'."<<endl<<"Recuerda también que si tu papel está demasiado deteriorado o manchado no es posible reciclarlo o reutilizarlo :((";
   }
 }
+
+#endif

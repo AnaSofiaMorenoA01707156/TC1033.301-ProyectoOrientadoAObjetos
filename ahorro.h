@@ -23,74 +23,76 @@ protected:
   float porUnidad_lig;
   float porUnidad_esp;
   float porUnidad_pes;
+  float cantidad;
+  float total;
 public:
-  ahorro(float, float, float);
+  ahorro(float, float, float, float);
   float get_porUnidad_lig();
   float get_porUnidad_esp();
   float get_porUnidad_pes();
-  void ahorroTotal_lig();
-  void ahorroTotal_esp();
-  void ahorroTotal_pes();
+  float ahorroTotal_lig();
+  float ahorroTotal_esp();
+  float ahorroTotal_pes();
 };
 
-ahorro::ahorro(float l, float e, float p){
+ahorro::ahorro(float c, float l, float e, float p){
+  cantidad=c;
   porUnidad_lig=l;
   porUnidad_esp=e;
   porUnidad_pes=p;
 }
 
 
-ahorro::float get_porUnidad_lig(){
+float ahorro::get_porUnidad_lig(){
   return porUnidad_lig;
 }
 
 
-ahorro::float get_porUnidad_esp(){
+float ahorro::get_porUnidad_esp(){
   return porUnidad_esp;
 }
 
 
-ahorro::float get_porUnidad_pes(){
+float ahorro::get_porUnidad_pes(){
   return porUnidad_pes;
 }
 
-ahorro:: float ahorroTotal_lig(){
-  canti=ligero cantidad
-  total=canti*porUnidad_lig;
+float ahorro::ahorroTotal_lig(){
+  total=cantidad*porUnidad_lig;
   return total;
 }
 
 
-ahorro:: float ahorroTotal_esp(){
-  canti=especial cantidad
-  total=canti*porUnidad_esp;
+float ahorro::ahorroTotal_esp(){
+  total=cantidad*porUnidad_esp;
   return total;
 }
 
 
-ahorro:: float ahorroTotal_pes(){
-  canti=pesado cantidad
-  total=canti*porUnidad_pes;
+float ahorro::ahorroTotal_pes(){
+  total=cantidad*porUnidad_pes;
   return total;
 }
 
 class agua: public ahorro{
 public:
-  agua();
+  agua(float);
 };
 
-agua::agua():ahorro(0.051, 1.2, 128){};
+agua::agua(float c):ahorro(c, 0.051, 1.2, 128){};
 
 class Energia: public ahorro{
 public:
-  Energia();
+  Energia(float);
 };
 
-Energia::Energia():ahorro(0.017, 3.1, 43.5){};
+Energia::Energia(float c):ahorro(c, 0.017, 3.1, 43.5){};
 
 class Co2: public ahorro{
 public:
-  Co2();
+  Co2(float);
 };
 
-Co2::Co2():ahorro(0.003, 2.81, 7.0){};
+Co2::Co2(float c):ahorro(c, 0.003, 2.81, 7.0){};
+
+#endif
