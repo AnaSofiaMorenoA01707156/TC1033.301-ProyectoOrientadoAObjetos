@@ -62,12 +62,14 @@ int main(){
           cout<<"Tienes papel de tipo ligero. Aproximadamente "<<papel_ligero1.get_cantidad()<<" piezas, en un estado "<<papel_ligero1.get_estadoString()<<"."<<endl;
           cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_ligero1.get_tiempoVida()<<endl;
           papel_ligero1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no.";
+          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
           cin>>conocer;
           if(conocer){
-            agua agua1=agua(cant); Energia energia1=Energia(cant); Co2 Co2_1=Co2(cant);
+            agua agua1=agua(); Energia energia1=Energia(); Co2 Co2_1=Co2();
+            agua1.agrega_piezaL(cant,estado); energia1.agrega_piezaL(cant,estado); Co2_1.agrega_piezaL(cant,estado);
             cout<<"De manera general, por 1 hoja de papel ligero, se ahorran aproximadamente "<<agua1.get_porUnidad_lig()<<" litros, "<<energia1.get_porUnidad_lig()<< " kilovatios x hora y "<<Co2_1.get_porUnidad_lig()<<" kg de emisiones de CO2."<<endl;
             cout<<"Entonces, el reciclar "<<papel_ligero1.get_cantidad()<<"de este papel ahorra "<<agua1.ahorroTotal_lig()<<" litros, "<<energia1.ahorroTotal_lig()<<" kilovatios x hora y "<<Co2_1.ahorroTotal_lig()<<" kg de emisiones de CO2."<<endl;
+            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
           }
         break;
       }
@@ -78,16 +80,17 @@ int main(){
           estadosMenu();
           cin>>estado;
           especial papel_especial1 = especial(cant, estado);
-          cout<<"Tienes papel de tipo ligero. Aproximadamente "<<papel_especial1.get_cantidad()<<" piezas, en un estado "<<papel_especial1.get_estadoString()<<"."<<endl;
+          cout<<"Tienes papel de tipo especial. Aproximadamente "<<papel_especial1.get_cantidad()<<" piezas, en un estado "<<papel_especial1.get_estadoString()<<"."<<endl;
           cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_especial1.get_tiempoVida()<<endl;
           papel_especial1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no.";
+          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
           cin>>conocer;
           if(conocer){
-            agua agua2=agua(cant); Energia energia2=Energia(cant); Co2 Co2_2=Co2(cant);
-            cout<<"De manera general, por 1 hoja de papel especial, se ahorran aproximadamente "<<agua2.get_porUnidad_lig()<<" litros, "<<energia2.get_porUnidad_lig()<< " kilovatios x hora y "<<Co2_2.get_porUnidad_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Entonces, el reciclar"<<papel_especial1.get_cantidad()<<"de este papel ahorra "<<agua2.ahorroTotal_lig()<<" litros, "<<energia2.ahorroTotal_lig()<<" kilovatios x hora y "<<Co2_2.ahorroTotal_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Información de acuerdo a la compañía de ecología Steinbeis papier."<<endl;
+            agua agua2=agua(); Energia energia2=Energia(); Co2 Co2_2=Co2();
+            agua2.agrega_piezaE(cant,estado); energia2.agrega_piezaE(cant,estado); Co2_2.agrega_piezaE(cant,estado);
+            cout<<"De manera general, por 1 hoja de papel especial, se ahorran aproximadamente "<<agua2.get_porUnidad_esp()<<" litros, "<<energia2.get_porUnidad_esp()<< " kilovatios x hora y "<<Co2_2.get_porUnidad_esp()<<" kg de emisiones de CO2."<<endl;
+            cout<<"Entonces, el reciclar"<<papel_especial1.get_cantidad()<<"de este papel ahorra "<<agua2.ahorroTotal_esp()<<" litros, "<<energia2.ahorroTotal_esp()<<" kilovatios x hora y "<<Co2_2.ahorroTotal_esp()<<" kg de emisiones de CO2."<<endl;
+            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
           }
         break;
       }
@@ -98,16 +101,17 @@ int main(){
           estadosMenu();
           cin>>estado;
           pesado papel_pesado1 = pesado(cant, estado);
-          cout<<"Tienes papel de tipo ligero. Aproximadamente "<<papel_pesado1.get_cantidad()<<" piezas, en un estado "<<papel_pesado1.get_estadoString()<<"."<<endl;
+          cout<<"Tienes papel de tipo pesado. Aproximadamente "<<papel_pesado1.get_cantidad()<<" piezas, en un estado "<<papel_pesado1.get_estadoString()<<"."<<endl;
           cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_pesado1.get_tiempoVida()<<endl;
           papel_pesado1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no.";
+          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
           cin>>conocer;
           if(conocer){
-            agua agua3=agua(cant); Energia energia3=Energia(cant); Co2 Co2_3=Co2(cant);
-            cout<<"De manera general, por 1 hoja de papel especial, se ahorran aproximadamente "<<agua3.get_porUnidad_lig()<<" litros, "<<energia3.get_porUnidad_lig()<< " kilovatios x hora y "<<Co2_3.get_porUnidad_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Entonces, el reciclar"<<papel_pesado1.get_cantidad()<<"de este papel ahorra "<<agua3.ahorroTotal_lig()<<" litros, "<<energia3.ahorroTotal_lig()<<" kilovatios x hora y "<<Co2_3.ahorroTotal_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Información de acuerdo a la compañía de ecología Steinbeis papier."<<endl;
+            agua agua3=agua(); Energia energia3=Energia(); Co2 Co2_3=Co2();
+            agua3.agrega_piezaP(cant,estado); energia3.agrega_piezaP(cant,estado); Co2_3.agrega_piezaP(cant,estado);
+            cout<<"De manera general, por 1 pieza de papel pesado, se ahorran aproximadamente "<<agua3.get_porUnidad_pes()<<" litros, "<<energia3.get_porUnidad_pes()<< " kilovatios x hora y "<<Co2_3.get_porUnidad_pes()<<" kg de emisiones de CO2."<<endl;
+            cout<<"Entonces, el reciclar"<<papel_pesado1.get_cantidad()<<"de este papel ahorra "<<agua3.ahorroTotal_pes()<<" litros, "<<energia3.ahorroTotal_pes()<<" kilovatios x hora y "<<Co2_3.ahorroTotal_pes()<<" kg de emisiones de CO2."<<endl;
+            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
           }
         break;
       }

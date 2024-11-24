@@ -51,8 +51,11 @@ string papel::get_estadoString(){
   else if(estadoLimpieza==2){
     return "decente";
   }
-  else if(estadoLimpieza==1){
+  else if(estadoLimpieza==3){
     return "dudoso";
+  }
+  else{
+    return "";
   }
 }
 

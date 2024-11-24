@@ -20,13 +20,14 @@ using namespace std;
 
 class pesado: public papel {
 public:
-  //Constructor
+  //Constructores
+  pesado():papel(0.0, 0, ""){};
   pesado(float, int);
   void recomendaciones(int);
 };
 
 //Regresa el objeto de pesado
-pesado::pesado(float cant, int estado):papel(cant, estado, "alrededor de 5 años."){}
+pesado::pesado(float cant, int estado):papel(cant, estado, "alrededor de 5 años."){};
 
 //Imprime las recomendaciones para reciclar o reutilizar el objeto de acuerdo a su atributo estadoLimpieza
 void pesado::recomendaciones(int est){
@@ -44,7 +45,7 @@ void pesado::recomendaciones(int est){
       break;
     }
     default:
-      cout<<"Estado de tu papel no válido. Recuerda que las posibles opciones del estado del papel que quieres reciclar o reutilizar son: 'Bueno', 'Decente' o 'Dudoso'."<<endl<<"Recuerda también que si tu papel está demasiado deteriorado o manchado no es posible reciclarlo o reutilizarlo :((";
+      cout<<"El estado de tu papel no es válido. Recuerda que las posibles opciones del estado del papel que quieres reciclar o reutilizar son: 'Bueno', 'Decente' o 'Dudoso'."<<endl<<"Recuerda también que si tu papel está demasiado deteriorado o manchado no es posible reciclarlo o reutilizarlo :((";
   }
 }
 

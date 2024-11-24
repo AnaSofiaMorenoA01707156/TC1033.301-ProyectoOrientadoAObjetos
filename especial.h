@@ -20,14 +20,15 @@ using namespace std;
 
 class especial: public papel {
 public:
-  //Constructor
+  //Constructores
+  especial():papel(0.0, 0, ""){};
   especial(float, int);
   void recomendaciones(int);
 };
 
 //Regresa el objeto de especial
 especial::especial(float cant, int estado):papel(cant, estado, "de 5 hasta 20 años (depende mucho del tipo de ambiente en el que se encuentre)."){
-}
+};
 
 //Imprime las recomendaciones para reciclar o reutilizar el objeto de acuerdo a su atributo estadoLimpieza
 void especial::recomendaciones(int est){
@@ -45,7 +46,7 @@ void especial::recomendaciones(int est){
       break;
     }
     default:
-      cout<<"Estado de tu papel no válido. Recuerda que las posibles opciones del estado del papel que quieres reciclar o reutilizar son: 'Bueno', 'Decente' o 'Dudoso'."<<endl<<"Recuerda también que si tu papel está demasiado deteriorado o manchado no es posible reciclarlo o reutilizarlo :((";
+      cout<<"El estado de tu papel no es válido. Recuerda que las posibles opciones del estado del papel que quieres reciclar o reutilizar son: 'Bueno', 'Decente' o 'Dudoso'."<<endl<<"Recuerda también que si tu papel está demasiado deteriorado o manchado no es posible reciclarlo o reutilizarlo :((";
   }
 }
 
