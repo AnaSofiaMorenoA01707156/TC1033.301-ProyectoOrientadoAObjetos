@@ -19,7 +19,7 @@ using namespace std;
 
 class papel {
 protected:
-  //Declara las variables de instancia de la clase padre "papel"
+  //Declara las variables de instancia de la clase "papel"
   int estadoLimpieza;
   float gramos;
   //Recibe objetos de las clases componentes Agua, Energia y Co2
