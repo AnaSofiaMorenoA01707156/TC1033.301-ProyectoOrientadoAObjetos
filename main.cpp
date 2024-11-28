@@ -1,126 +1,67 @@
 /*
-Proyecto de Pensamiento computacional orientado a objetos: "smart-Recylcing :))"
-Ana Sofía Moreno Hernández
+Proyecto de Pensamiento computacional orientado a objetos: "smart Paper-recylcing :))"
+Ana Sofia Moreno Hernandez
 A01707156
-8/11/2024
+29/11/2024
 */
 
 //Bibliotecas
 #include<iostream>
 #include<string>
 //Archivos de las clases que uiliza el programa principal
-#include "ligero.h"
-#include "especial.h"
-#include "pesado.h"
+#include "papel.h"
 #include "ahorro.h"
 
 using namespace std;
 
-//Menú que despliega las 3 clases de objetos con las que cuenta el programa (tipos de papel o cartón para reciclar), de las que el usuario puede elegir
-void tiposMenu(){
-  cout<<"1) Ligero: papel regular de menos de 80g x metro cuadrado, como documentos de oficina, hojas de cuadernos, etc."<<endl;
-  cout<<"2) Especial: papel de peso medio (80-150g x metro cuadrado), brillante o para usos más específicos, como revistas, pósters, fotografías, volantes, etc."<<endl;
-  cout<<"3) Pesado: principalmente cartón, de más de 200g x metro cuadrado"<<endl;
-  cout<<"Por favor ingresa únicamente el número del tipo de papel de los anteriores del que deseas saber: ";
-}
-
-//Menú que despliega los posibles estados del papel o cartón a reciclar o reutilizar que puede elegir el usuario
+//Menu que despliega los posibles estados del papel o carton a reciclar o reutilizar que puede elegir el usuario
 void estadosMenu(){
-  cout<<"Los estados y la limpieza del papel/cartón que se puede reciclar son los siguientes: "<<endl;
+  cout<<"\nLos estados y la limpieza del papel/carton que se puede reciclar son los siguientes: "<<endl;
   cout<<"1 Bueno: se encuentra limpio (sin manchas), sin arrugar y con pocos usos"<<endl;
   cout<<"2 Decente: se encuentra limpio, pero arrugado, con muchos dobleces o con +1 uso"<<endl;
   cout<<"3 Dudoso: se encuentra un poco sucio o con pocas manchas, arrugado, con muchos dobleces o con varios usos"<<endl;
-  cout<<"Revisa bien el papel/cartón. Si está en muy mal estado, no puede ser reciclado o reutilizado :(."<<endl;
-  cout<<"Por favor ingresa únicamente el número del estado del papel/cartón mencionadas arriba ('1 Bueno', '2 Decente' o '3 Dudoso')."<<endl;
+  cout<<"Revisa bien el papel/carton. Si esta en muy mal estado, no puede ser reciclado o reutilizado :(."<<endl;
+  cout<<"\nPor favor ingresa unicamente el numero del estado del papel/carton mencionadas arriba ('1 Bueno', '2 Decente' o '3 Dudoso'): ";
 }
 
 int main(){
-  int tipo;
-  float cant;
+  float gramos;
   int estado;
-  bool valido, conocer;
-  cout<<"Bienvenido a smart-Paper Recycling"<<endl;
-  cout<<"¿Aproximadamente cuántas unidades de papel o cartón (puede ser con decimal) tienes para reciclar o reutilizar?"<<endl;
-  cin>>cant;
-  valido=true;
-  //Ciclo do-while para que el usuario pueda elegir un tipo de papel o cartón válido dentro de las opciones del programa para que este corra (se repite si el usuario ingresa una opción inválida)
-  do{
-    cout<<"¿Sobre qué tipo de papel/cartón deseas informarte y recibir consejos para su reciclaje o reutilización? Hay los siguientes..."<<endl;
-    //Impresión del menú de opciones de papel o cartón (clases)
-    tiposMenu();
-    //Ingreso y registro de la selección de tipo de papel o cartón del usuario
-    cin>>tipo;
-    //Switch para que el código corra utilizando el tipo de clase (objeto) seleccionado por el usuario
-    switch(tipo){
-      //Caso 1 que crea un objeto de la clase de papel ligero y devuelve sus atributos y ejecuta sus métodos
-      case 1:{
-          valido=false;
-          cout<<"Me sería útil conocer el estado del papel.";
-          estadosMenu();
-          cin>>estado;
-          ligero papel_ligero1 = ligero(cant, estado);
-          cout<<"Tienes papel de tipo ligero. Aproximadamente "<<papel_ligero1.get_cantidad()<<" piezas, en un estado "<<papel_ligero1.get_estadoString()<<"."<<endl;
-          cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_ligero1.get_tiempoVida()<<endl;
-          papel_ligero1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
-          cin>>conocer;
-          if(conocer){
-            agua agua1=agua(); Energia energia1=Energia(); Co2 Co2_1=Co2();
-            agua1.agrega_piezaL(cant,estado); energia1.agrega_piezaL(cant,estado); Co2_1.agrega_piezaL(cant,estado);
-            cout<<"De manera general, por 1 hoja de papel ligero, se ahorran aproximadamente "<<agua1.get_porUnidad_lig()<<" litros, "<<energia1.get_porUnidad_lig()<< " kilovatios x hora y "<<Co2_1.get_porUnidad_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Entonces, el reciclar "<<papel_ligero1.get_cantidad()<<"de este papel ahorra "<<agua1.ahorroTotal_lig()<<" litros, "<<energia1.ahorroTotal_lig()<<" kilovatios x hora y "<<Co2_1.ahorroTotal_lig()<<" kg de emisiones de CO2."<<endl;
-            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
-          }
-        break;
-      }
-      //Caso 2 que crea un objeto de la clase de papel especial y devuelve sus atributos y ejecuta sus métodos
-      case 2:{
-          valido=false;
-          cout<<"Me sería útil conocer el estado del papel.";
-          estadosMenu();
-          cin>>estado;
-          especial papel_especial1 = especial(cant, estado);
-          cout<<"Tienes papel de tipo especial. Aproximadamente "<<papel_especial1.get_cantidad()<<" piezas, en un estado "<<papel_especial1.get_estadoString()<<"."<<endl;
-          cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_especial1.get_tiempoVida()<<endl;
-          papel_especial1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
-          cin>>conocer;
-          if(conocer){
-            agua agua2=agua(); Energia energia2=Energia(); Co2 Co2_2=Co2();
-            agua2.agrega_piezaE(cant,estado); energia2.agrega_piezaE(cant,estado); Co2_2.agrega_piezaE(cant,estado);
-            cout<<"De manera general, por 1 hoja de papel especial, se ahorran aproximadamente "<<agua2.get_porUnidad_esp()<<" litros, "<<energia2.get_porUnidad_esp()<< " kilovatios x hora y "<<Co2_2.get_porUnidad_esp()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Entonces, el reciclar"<<papel_especial1.get_cantidad()<<"de este papel ahorra "<<agua2.ahorroTotal_esp()<<" litros, "<<energia2.ahorroTotal_esp()<<" kilovatios x hora y "<<Co2_2.ahorroTotal_esp()<<" kg de emisiones de CO2."<<endl;
-            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
-          }
-        break;
-      }
-      //Caso 3 que crea un objeto de la clase de papel pesado y devuelve sus atributos y ejecuta sus métodos
-      case 3:{
-          valido=false;
-          cout<<"Me sería útil conocer el estado del papel.";
-          estadosMenu();
-          cin>>estado;
-          pesado papel_pesado1 = pesado(cant, estado);
-          cout<<"Tienes papel de tipo pesado. Aproximadamente "<<papel_pesado1.get_cantidad()<<" piezas, en un estado "<<papel_pesado1.get_estadoString()<<"."<<endl;
-          cout<<"El tiempo de degradación de este tipo de papel en un vertedero o basurero, junto con muchos residuos, puede ser "<<papel_pesado1.get_tiempoVida()<<endl;
-          papel_pesado1.recomendaciones(estado);
-          cout<<"¿Deseas conocer el impacto ecológico positivo de reciclar este papel? (El ahorro de agua y de energía, así como de emisiones de CO2)"<<endl<<"Escribe 1 para sí o 0 para no: ";
-          cin>>conocer;
-          if(conocer){
-            agua agua3=agua(); Energia energia3=Energia(); Co2 Co2_3=Co2();
-            agua3.agrega_piezaP(cant,estado); energia3.agrega_piezaP(cant,estado); Co2_3.agrega_piezaP(cant,estado);
-            cout<<"De manera general, por 1 pieza de papel pesado, se ahorran aproximadamente "<<agua3.get_porUnidad_pes()<<" litros, "<<energia3.get_porUnidad_pes()<< " kilovatios x hora y "<<Co2_3.get_porUnidad_pes()<<" kg de emisiones de CO2."<<endl;
-            cout<<"Entonces, el reciclar"<<papel_pesado1.get_cantidad()<<"de este papel ahorra "<<agua3.ahorroTotal_pes()<<" litros, "<<energia3.ahorroTotal_pes()<<" kilovatios x hora y "<<Co2_3.ahorroTotal_pes()<<" kg de emisiones de CO2."<<endl;
-            cout<<"(Información de acuerdo a la compañía de ecología Steinbeis papier)."<<endl;
-          }
-        break;
-      }
-      //Si el usuario ingresa un valor que no está dentro de las opciones del menú se ejecuta el default con el mensaje y se regresa a ejecutar el loop para volver a pedir al usuario una opción válida
-      default:
-          cout<<"Opción no válida. Inténtalo de nuevo."<<endl;
-    }
+  bool cambioG, cambioE;
+  cout<<"\nBienvenido a smart-Paper Recycling! :))"<<endl;
+  cout<<"\n\nAproximadamente cuantos gramos de papel o carton (puede ser con decimal) tienes para reciclar o reutilizar?"<<endl;
+  cin>>gramos;
+  cout<<"\nMe seria util conocer el estado del papel..."<<endl;
+  estadosMenu();
+  //El usuario ingresa una de las opciones dadas para describir el estado de su papel
+  cin>>estado;
+  //Creación de objeto papel
+  papel papel1 = papel(gramos, estado);
+  //Imprime la información sobre el papel en cuestión usando los atributos de papel
+  cout<<"\n\n\nTienes aproximadamente "<<papel1.get_gramos()<<" gramos de papel, en un estado "<<papel1.get_estadoLimpieza()<<" "<<papel1.estadoString()<<"."<<endl;
+  cout<<"Ahora te recomendare como reciclar tu papel con base en su estado. \nDeseas cambiar el estado del papel para evaluar las recomendaciones para su reciclaje?"<<endl<<"Escribe 1 para si o 0 para no: ";
+  cin>>cambioE;
+  if(cambioE){
+    estadosMenu();
+    cin>>estado;
+    papel1.set_estadoLimpieza(estado);
   }
-    //Ciclo do-while para que el usuario pueda elegir un tipo de papel o cartón válido dentro de las opciones del programa para que este corra (se repite si el usuario ingresa una opción inválida)
-  while(valido);
+  papel1.recomendaciones();
+
+  cout<<"\nAhora te mostrare el impacto ecologico positivo de reciclar este papel. Es decir, el ahorro aproximado de agua y de energia al reciclarlo, asi como el aproximado de CO2 no emitido."<<endl;
+  cout<<"Deseas cambiar los gramos de papel para la evaluacion?"<<endl<<"Escribe 1 para si o 0 para no: ";
+  cin>>cambioG;
+  if(cambioG){
+    //El usuario ingresa los gramos aproximados de su papel para poder proporcionar la información
+    cout<<"\nGramos de papel: ";
+    cin>>gramos;
+    papel1.set_gramos(gramos);
+  }
+  //Se utilizan los métodos del papel que usan (composición) un objeto de las clases hijas de ahorro
+  papel1.agrega_Ahorros();
+  papel1.imprime_Ahorros();
+  //Método de que utiliza los objetos de composición para poder imprimir la información de ahorros ecológicos.
+  cout<<"(Informacion de acuerdo a la compania de ecologia Steinbeis papier)."<<endl;
+  cout<<"\n\nGracias por usar smart-Paper Recycling. Hasta luego!\n";
   return 0;
 }
