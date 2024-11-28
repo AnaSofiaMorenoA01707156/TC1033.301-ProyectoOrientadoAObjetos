@@ -1,7 +1,7 @@
 # TC1033.301-Proyecto de Pensamiento computacional orientado a objetos: "smart-Recylcing :))"
 Este es un proyecto hecho para ayudar a las personas a identificar sus tipos de desechos reciclables (por el momento solo distintos papeles y cartón), para posteriormente aprender de qué forma pueden reciclar o reutilizar cada uno. Además, muestra el posible impacto ambiental positivo de reciclar el objeto que el usuario tenga en términos de ahorro de agua, energía y emisiones de CO2. Esto tiene la intención de fomentar la reutilización y el reciclaje en la sociedad, así como la educación sobre los mismos y sobre su beneficio al cuidado y preservación del medio ambiente.
 
-NOTA: Las recomendaciones sobre reciclaje y reutilización aún no aparecen completas. En futuros avances estarán completas a partir de investigación.<--
+NOTA: Las recomendaciones sobre reciclaje y reutilización aún no aparecen completas. En un programa completo y funcional deben partir de una investigación completa para proporcionar información adecuada.<--
 
 # Contexto
 En el mundo en general, pero especialmente en México, existe una falta de reciclaje y reutilización de residuos por parte de todos los que los generan. Aún en 2019, se estimó que México solo reciclaba el 6.1% de todos sus residuos reciclables, como cartón, plástico, latas y papel (El País, 2023). Esto se debe en gran parte a la falta de educación y a la poca cultura de reciclaje que existe, pues muchas personas desconocen cómo pueden reciclar o reutilizar sus distintos tipos de residuos.
