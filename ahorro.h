@@ -27,9 +27,11 @@ public:
   ahorro(){}; //default
   ahorro(float, string, float); //con parámetros
   //Métodos de la clase, heredados a las clases hijas
+  float get_gramos();
   float get_porGramo();
   string get_unidad();//Getters. No necesita get de gramos porque ya existe uno dentro del objeto de papel.
-  //No es necesario tener setters puesto que son atributos de las clases hijas que el usuario no puede elegir, son constantes.
+  void set_gramos(float); //setter
+  //No es necesario tener los otros setters puesto que son atributos de las clases hijas que el usuario no puede elegir, son constantes.
   float ahorroTotal();
 };
 
@@ -45,6 +47,10 @@ float ahorro::get_porGramo(){
   return porGramo;
 }
 
+float ahorro::get_gramos(){
+  return gramos;
+}
+
 //Abstrae el atributo de unidad
 string ahorro::get_unidad(){
   return unidad;
@@ -54,6 +60,10 @@ string ahorro::get_unidad(){
 float ahorro::ahorroTotal(){
   total=gramos*porGramo;
   return total;
+}
+
+void ahorro::set_gramos(float g){
+  gramos=g;
 }
 
 //Calse hija de "ahorro" (hereda de ahorro): Agua

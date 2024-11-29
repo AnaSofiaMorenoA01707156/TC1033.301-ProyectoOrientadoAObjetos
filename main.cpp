@@ -26,19 +26,19 @@ void estadosMenu(){
 
 int main(){
   float gramos;
-  int estado;
-  bool cambioG, cambioE;
+  int estado, tipo;
+  bool cambioE;
   cout<<"\nBienvenido a smart-Paper Recycling! :))"<<endl;
-  cout<<"\n\nAproximadamente cuantos gramos de papel o carton (puede ser con decimal) tienes para reciclar o reutilizar?"<<endl;
-  cin>>gramos;
+  cout<<"\n\nTu residuo es papel de oficina/de uso cotidiano, o es carton? (Escribe 1 si es papel cotidiano y 2 si es carton): ";
+  cin>>tipo;
   cout<<"\nMe seria util conocer el estado del papel..."<<endl;
   estadosMenu();
   //El usuario ingresa una de las opciones dadas para describir el estado de su papel
   cin>>estado;
   //Creación de objeto papel
-  papel papel1 = papel(gramos, estado);
+  papel papel1 = papel(tipo, estado);
   //Imprime la información sobre el papel en cuestión usando los atributos de papel
-  cout<<"\n\n\nTienes aproximadamente "<<papel1.get_gramos()<<" gramos de papel, en un estado "<<papel1.get_estadoLimpieza()<<" "<<papel1.estadoString()<<"."<<endl;
+  cout<<"\n\nTienes "<<papel1.tipoString()<<"(opcion "<<papel1.get_tipo()<<"), en un estado "<<papel1.get_estadoLimpieza()<<" "<<papel1.estadoString()<<"."<<endl;
   cout<<"Ahora te recomendare como reciclar tu papel con base en su estado. \nDeseas cambiar el estado del papel para evaluar las recomendaciones para su reciclaje?"<<endl<<"Escribe 1 para si o 0 para no: ";
   cin>>cambioE;
   if(cambioE){
@@ -48,17 +48,12 @@ int main(){
   }
   papel1.recomendaciones();
 
-  cout<<"\nAhora te mostrare el impacto ecologico positivo de reciclar este papel. Es decir, el ahorro aproximado de agua y de energia al reciclarlo, asi como el aproximado de CO2 no emitido."<<endl;
-  cout<<"Deseas cambiar los gramos de papel para la evaluacion?"<<endl<<"Escribe 1 para si o 0 para no: ";
-  cin>>cambioG;
-  if(cambioG){
+  cout<<"\nAhora te mostrare el impacto ecologico positivo de reciclar este papel. Es decir, el ahorro aproximado de agua y de energia al reciclarlo, asi como el aproximado de CO2 no emitido. Entonces necesitare un aproximado de los gramos de papel."<<endl;
     //El usuario ingresa los gramos aproximados de su papel para poder proporcionar la información
-    cout<<"\nGramos de papel: ";
-    cin>>gramos;
-    papel1.set_gramos(gramos);
-  }
+  cout<<"\nGramos de papel: ";
+  cin>>gramos;
   //Se utilizan los métodos del papel que usan (composición) un objeto de las clases hijas de ahorro
-  papel1.agrega_Ahorros();
+  papel1.agrega_Ahorros(gramos);
   papel1.imprime_Ahorros();
   //Método de que utiliza los objetos de composición para poder imprimir la información de ahorros ecológicos.
   cout<<"(Informacion de acuerdo a la compania de ecologia Steinbeis papier)."<<endl;

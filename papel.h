@@ -21,7 +21,7 @@ class papel {
 protected:
   //Declara las variables de instancia de la clase "papel"
   int estadoLimpieza;
-  float gramos;
+  int tipo;
   //Recibe objetos de las clases componentes Agua, Energia y Co2
   Agua ahorroAgua;
   Energia ahorroEnergia;
@@ -29,33 +29,46 @@ protected:
 public:
   //constructores
   papel(){}; //default
-  papel(float, int); //con parámetros
+  papel(int, int); //con parámetros
   //Métodos miembros de la clase
-  float get_gramos();
+  int get_tipo();
   int get_estadoLimpieza();//getters
   //Devuelve un string correspondiente del estado del papel
   string estadoString();
-  void set_gramos(float c);
-  void set_estadoLimpieza(int e); //setters
+  string tipoString();
+  void set_tipo(int);
+  void set_estadoLimpieza(int); //setters
   void recomendaciones();
   //Métodos que utilizan (llaman y crean indirectamente) objetos de las clases componentes
-  void agrega_Ahorros();
+  void agrega_Ahorros(float);
   void imprime_Ahorros();
 };
 
 //Cosntructor definido
-papel::papel(float gr, int estado){
+papel::papel(int tip, int estado){
+  tipo=tip;
   estadoLimpieza=estado;
-  gramos=gr;
 }
 
 //Abstrae el atributo gramos del objeto
-float papel::get_gramos(){
-  return gramos;
+int papel::get_tipo(){
+  return tipo;
 }
 
 int papel::get_estadoLimpieza(){
   return estadoLimpieza;
+}
+
+string papel::tipoString(){
+  if(tipo==1){
+    return " papel de oficina o de uso cotidiano ";
+  }
+  else if(tipo==2){
+    return " carton ";
+  }
+  else{
+    return "no valido (no esta dentro de las opciones)";
+  }
 }
 
 //Regresa el atributo estadoLimpieza del objeto, pero en forma de un string que pueda ser leído por el usuario
@@ -70,12 +83,12 @@ string papel::estadoString(){
     return "dudoso";
   }
   else{
-    return "no válido (dentro de las opciones)";
+    return "no valido (no esta dentro de las opciones)";
   }
 }
 
-void papel::set_gramos(float g){
-  gramos=g;
+void papel::set_tipo(int t){
+  tipo=t;
 }
 
 void papel::set_estadoLimpieza(int e){
@@ -83,7 +96,7 @@ void papel::set_estadoLimpieza(int e){
 }
 
 //Agrega a la composición de la clase contenedora objetos de las clases componentes al llamar a su contructor con el float de los gramos de papel que este necesita
-void papel::agrega_Ahorros(){
+void papel::agrega_Ahorros(float gramos){
   ahorroAgua=Agua(gramos);
   ahorroEnergia=Energia(gramos);
   ahorroCo2=Co2(gramos);
@@ -111,11 +124,11 @@ void papel::recomendaciones(){
 //Imprime en el programa la información de ecología sobre el reciclaje del papel haciendo uso de los objetos recibidos de las clases componentes y sus métodos
 void papel::imprime_Ahorros(){
   cout<<"\n\nPor gramo de papel reciclado, se ahorran aproximadamente "<<ahorroAgua.get_porGramo()<<ahorroAgua.get_unidad()<<"."<<endl;
-  cout<<"Entonces, al reciclar este papel de "<<gramos<<" gramos, hay un ahorro de "<<ahorroAgua.ahorroTotal()<<ahorroAgua.get_unidad()<<"."<<endl;
+  cout<<"Entonces, al reciclar este papel de "<<ahorroAgua.get_gramos()<<" gramos, hay un ahorro de "<<ahorroAgua.ahorroTotal()<<ahorroAgua.get_unidad()<<"."<<endl;
   cout<<"Por gramo de papel reciclado, se ahorran aproximadamente "<<ahorroEnergia.get_porGramo()<<ahorroEnergia.get_unidad()<<"."<<endl;
-  cout<<"Entonces, al reciclar este papel de "<<gramos<<" gramos, hay un ahorro de "<<ahorroEnergia.ahorroTotal()<<ahorroEnergia.get_unidad()<<"."<<endl;
+  cout<<"Entonces, al reciclar este papel de "<<ahorroEnergia.get_gramos()<<" gramos, hay un ahorro de "<<ahorroEnergia.ahorroTotal()<<ahorroEnergia.get_unidad()<<"."<<endl;
   cout<<"Por gramo de papel reciclado, se ahorran aproximadamente "<<ahorroCo2.get_porGramo()<<ahorroCo2.get_unidad()<<"."<<endl;
-  cout<<"Entonces, al reciclar este papel de "<<gramos<<" gramos, hay un ahorro de "<<ahorroCo2.ahorroTotal()<<ahorroCo2.get_unidad()<<"."<<endl;
+  cout<<"Entonces, al reciclar este papel de "<<ahorroCo2.get_gramos()<<" gramos, hay un ahorro de "<<ahorroCo2.ahorroTotal()<<ahorroCo2.get_unidad()<<"."<<endl;
 }
 
 #endif
