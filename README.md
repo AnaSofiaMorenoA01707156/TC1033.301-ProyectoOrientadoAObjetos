@@ -19,7 +19,9 @@ El programa solo corre en la consola y esta hecho con c++ standard por lo que co
 
 + Correr en Windows PowerShell: ".\a.exe"
 
-+ Correr en Windows "a.exe"
++ Correr en Windows: "a.exe"
+
++ Correr en Linux: "a.out" ó ./a.out"
 
 # Referencias
 Arratibel, A. J. (2023). El dilema de México y sus siete millones de toneladas de basura plástica. El País América. https://elpais.com/america-futura/2023-01-20/el-dilema-de-mexico-y-las-siete-millones-de-toneladas-de-plastico-que-acaban-en-la-basura-o-en-el-mar.html
